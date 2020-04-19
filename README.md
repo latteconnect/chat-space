@@ -4,7 +4,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true, index: true|
 |group|references|null: false, foreign_key: true|
 
 ### Association
@@ -21,7 +21,7 @@
 
 ### Association
 - has_many :groups_users
-- has_many :groups, through :groups_users
+- has_many :groups, through: :groups_users
 - has_many :messages
 
 ## groups テーブル
@@ -31,16 +31,16 @@
 
 ### Association
 - has_many :groups_users
-- has_many :users, through :groups_users
+- has_many :users, through: :groups_users
 - has_many :messages
 
 ## messages テーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|image|string|null: false|
-|users|references|null: false|
-|groups|references|null: false|
+|text|text||
+|image|string||
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
