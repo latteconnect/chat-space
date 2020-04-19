@@ -4,7 +4,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true, index: true|
+|user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 
 ### Association
@@ -15,7 +15,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index: true|
 |email|string|null: false|
 |password|string|null: false|
 
