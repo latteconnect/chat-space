@@ -12,12 +12,12 @@ $gray: #434a54;
 .side_bar {
     background-color: #2f3e51;
     width: 300px;
-  .user-name {
-    background-color: #253141;
-    height: 100px;
-    display: flex;
-    align-items: center;
-  .top-items {
+    .user-name {
+      background-color: #253141;
+      height: 100px;
+      display: flex;
+      align-items: center;
+    .top-items {
       height: 20px;
       width: 260px;
       margin: 0 20px;
@@ -31,23 +31,24 @@ $gray: #434a54;
         color: $white;
         margin-right: 5px;
       }
-   }
+    }
   } 
   .group-list {
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     margin: 0 5px;
     font-weight: bold;
-    &__title {
-      color: $white;
-      margin-top: 20px;
-      margin-bottom: 5px;
-      font-size: 15px
-    }
-    &__text {
-      color: $white;
-      margin-bottom: 40px;
-      font-size: 11px;
+    .group
+      &__title {
+        color: $white;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        font-size: 15px
+     }
+      &__text {
+        color: $white;
+        margin-bottom: 40px;
+        font-size: 11px;
     }
  }
 }
@@ -76,24 +77,30 @@ $gray: #434a54;
         }
       } 
     }
-    &__edit-btn {
-      color: $aqua;
-      font-size: 16px;
-      text-decoration: none;
-      border: 1px solid $aqua;
-      padding: 15px 20px;
+    .right {
+      margin:28px 40px 0 0 ;
+      .edit {
+        color: $aqua;
+        font-size: 16px;
+        border: 1px solid $aqua;
+        padding: 15px 20px;
+        .editor {
+          text-decoration: none;
+        }
+      }
     }
   } 
   .messages {
     background-color: #fafafa;
     height: calc(100vh - 190px);
     padding: 46px 40px;
+    overflow: scroll;
     .message {
       padding: 40px;
-      &__upside-info {
+      .upper-message {
         display: flex;
         margin-bottom: 12px;
-        &__user {
+        &__user-name {
           color: #333333;
           font-size: 16px;
         }
@@ -101,6 +108,11 @@ $gray: #434a54;
           color: #999999;
           font-size: 12px;
         }
+      .lower-message {
+        &__image{
+          border: 0;
+        }
+      }
       }
       &__text {
         color: $gray;
@@ -113,39 +125,37 @@ $gray: #434a54;
     height: 90px;
     width: calc(100vw - 300px);
     padding: 20px 40px;
-    position: fixed;
     bottom: 0;
-    .new_message {
+    justify-content: space-between;
+    .new_message{
+      display: flex;
       position: relative;
-      .input-box {
-        display: flex;
-        &__text {
-          width: calc(100vw - 100px);
-          padding: 0 10px;
-          margin-right: 15px;
-          height: 50px;
-          color: gray;
-        }
-        &__image {
-          position: absolute;
-          top: 10px;
-          right: 125px;
-          font-size: 12px;
-          &__file {
+    }
+    &__message {
+      display: flex;
+      height: 50px;
+      width: 100%;
+      padding: 0 40px 0 10px;
+      border-style: none;
+    }
+    &__mask {
+      position: absolute;
+      top: 20px;
+      right: 200px;
+      &__image {
+        #message_image{
           display: none;
-          }
         }
-      }
-      .submit-btn {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 100px;
-        height: 50px;
-        background-color: $aqua;
-        color: $white;
       }
     }
+  }
+
+    .submit-btn {
+      right: 0px;
+      width: 100px;
+      height: 50px;
+      background-color: $aqua;
+      color: $white;
+     }
    }
   }
-}
