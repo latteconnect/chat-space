@@ -2,28 +2,18 @@
   .main-header
     .main-header__left-box
       %h2.main-header__left-box__current-group
-      = @group.name
-      %ul.main-header__left-box__member-list__member
-        Member:
-        - @group.users.each do |user|
-          = user.name
-        %li.main-header__left-box__member-list__member
-      
-    .right
-      .edit
-      = link_to edit_group_path(@group),class:"editor" do
-        Edit
+        = @group.name
+        %ul.main-header__left-box__member-list
+          Member：
+          %li.main-header__left-box__member-list__member 
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
+        = link_to edit_group_path(@group) do
+          .main-header__edit-btn
+            edit
+
   .messages
     = render @messages
-    .upper-message
-      %p.upper-message__user-name masa
-      %p.upper-message__date 2019/11/20(wed) 17:43:01
-    %p.message__text おはよう！
-    .lower-message
-      %p.upper-message__user-name masa
-      %p.upper-message__date 2019/11/20(wed) 17:43:01
-    %p.message__text 今日は夜から雨
-  
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
@@ -32,4 +22,4 @@
           = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'hidden'
       .submit-btn
-        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send", :class => "form__submit"}/

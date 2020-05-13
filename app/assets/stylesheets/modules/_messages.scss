@@ -17,77 +17,89 @@ $gray: #434a54;
       height: 100px;
       display: flex;
       align-items: center;
-    .top-items {
-      height: 20px;
-      width: 260px;
-      margin: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      &__name {
+      .top-items {
+        height: 20px;
+        width: 260px;
+        margin: 0 20px;
+        display: flex;
+        justify-content: space-between;
         color: $white;
-      }
-      &__icons {
-        list-style: none;
-        color: $white;
-        margin-right: 5px;
-      }
+        &__name {
+          margin-left: 5px;
+          a {
+            color: $white;
+            font-size: inherit;
+            list-style: none;
+          }
+        }
+        &__icons {
+          margin-right: 5px;
+          a {
+            color: $white;
+            font-size: inherit;
+          }
+        }
     }
   } 
-  .group-list {
+  .groups {
     background-color: #2f3e51;
-    height: calc(100vh - 100px);
-    margin: 0 5px;
-    font-weight: bold;
-    .group
-      &__title {
+    height: calc(100vh - 100px);     
+    padding: 20px 20px 0 20px;
+    bottom: 0;
+    overflow: scroll;
+    .group {
+      width: 100%;
+      a {
         color: $white;
-        margin-top: 20px;
-        margin-bottom: 5px;
-        font-size: 15px
-     }
-      &__text {
-        color: $white;
-        margin-bottom: 40px;
-        font-size: 11px;
-    }
+        font-weight: bold;
+        text-decoration: none;
+        .group-name {
+          font-size: 15px;
+          padding-bottom: 5px;
+        }
+        .group__message {
+          font-size: 11px;
+          padding-bottom: 40px;
+        }
+      }
+  }
  }
 }
 .chat-main {
   width: calc(100% - 300px);
-  background-color: #1a1d21;
+  background-color: #fafafa;
   .main-header {
-    background-color: $white;
     height: 100px;
-    border-bottom: 1px solid #eeeeee;
-    display: flex;
     padding: 0 40px;
-    align-items: center;
+    color: $white;
+    display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+    overflow: scroll;
     &__left-box {
       margin-top: 35px;
       &__current-group {
-        color: #333333;
         margin-bottom: 15px;
-        font-size: 20px; 
+        font-size: 20px;
+        color: #333333;
       }
       &__member-list {
-        &__member {
-          color: #999999;
-          font-size: 12px;
-        }
-      } 
-    }
-    .right {
-      margin:28px 40px 0 0 ;
-      .edit {
-        color: $aqua;
-        font-size: 16px;
-        border: 1px solid $aqua;
-        padding: 15px 20px;
-        .editor {
-          text-decoration: none;
-        }
+        display: flex;
+        font-size: 12px;
+        color: #999999;
       }
+    }
+    &__edit-btn {
+      color: $aqua;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 30px;
+      border: solid 1px $aqua;
+      position: absolute;
+      right: 40px;
+      top: 0;
     }
   } 
   .messages {
@@ -140,8 +152,8 @@ $gray: #434a54;
     }
     &__mask {
       position: absolute;
-      top: 20px;
-      right: 200px;
+      top: 15px;
+      right: 150px;
       &__image {
         #message_image{
           display: none;
