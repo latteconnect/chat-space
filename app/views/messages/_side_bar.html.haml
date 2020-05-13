@@ -8,12 +8,12 @@
           %i.fa.fa-edit.header-items__icons--pen
         = link_to edit_user_path(current_user.id) do
           %i.fa.fa-cog.header-items__icons--cog
-  .group-list 
-    - current_user.groups.each do |group|
-      .group
+  .groups
+    .group
+      - current_user.groups.each do |group|
         = link_to group_messages_path(group) do
-          .group__title
+          .group__name
             = group.name
-          .group__text
+          .group__message
             = group.show_last_message
     
